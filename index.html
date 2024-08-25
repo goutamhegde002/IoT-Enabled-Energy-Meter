@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Meter Dashboard</title>
+    <script>
+        async function fetchData() {
+            const response = await fetch('http://your_server_url/api/energy');
+            const data = await response.json();
+            document.getElementById('energyUsage').innerText = data.energyUsage;
+        }
+
+        setInterval(fetchData, 60000); // Update every minute
+    </script>
+</head>
+<body>
+    <h1>Energy Meter Dashboard</h1>
+    <p>Current Energy Usage: <span id="energyUsage">Loading...</span> kWh</p>
+</body>
+</html>
